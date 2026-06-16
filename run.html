@@ -1,1 +1,19 @@
-1
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>REC – RUN</title>
+</head>
+<body>
+
+<h1>RUN</h1>
+<p>REC wird ausgelöst…</p>
+
+<script>
+  fetch("REC/rec.yml")
+    .then(r => r.text())
+    .then(t => console.log("REC geladen:", t));
+</script>
+
+</body>
+</html>

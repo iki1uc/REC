@@ -1,3 +1,29 @@
-wake up 0.9
-free: on 0.17
-next: uime.html
+# REC – static.yml
+# reine Daten, 0% GitHub-Workflow-Risiko
+
+existenz: rec
+rtms_help: "~"        # sanftes RTMS-Metasignal
+
+clear: 1.0            # Nullfeld
+low: 1.1              # minimale Existenz
+wake: 0.9             # sanfter Start
+
+free: sanft           # freier Raum
+load: leicht          # sanftes Laden
+fix: stabil           # fester Kern
+upd: herzhaft         # kräftiger Impuls
+
+impuls:
+  art: sanft
+  kraft: mild
+
+rtms:
+  wurzel: "https://iki1uc.github.io/RTMS/"
+  erlaubt: true
+  modus: "fix"
+
+usb:
+  modus: "4x"
+  zugriff: "gesperrt"   # USB darf RTMS NICHT anfassen
+
+next: "uime.html"

@@ -20,5 +20,17 @@
   BORG.PAGE.index();
 </script>
 
+<script>
+fetch("wiz.yml")
+  .then(r => r.text())
+  .then(t => {
+    if (t.includes("mode: free")) {
+      const m = t.match(/next:\s*"([^"]+)"/);
+      if (m) window.location.href = m[1];
+    }
+  })
+  .catch(() => {});
+</script>
+
 </body>
 </html>

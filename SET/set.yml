@@ -1,4 +1,2 @@
 set:
-  mode: minimal
-  operator: auto
-
+  ready: true

@@ -1,15 +1,14 @@
-# root configuration (neutral, non-action)
-meta:
-  version: 1.0
-  revision: 0001
-  type: rec-root
+core:
+  active: true
+  stable: true
+  revision: 1
 
-load:
+paths:
   set: "SET/set.yml"
   rec: "REC/rec.yml"
   wrt: "WRT/wrt.yml"
 
-flags:
-  safe: true
-  github_ignore: true
-  mode: minimal
+state:
+  ready: true
+  mode: "minimal"
+  allow_extend: true

@@ -1,4 +1,8 @@
 play:
+  ok: 1
+  rev: 1.07
+  rec: "REC/rec.yml"
+  date: "2026-06-16"
   active: true
   impulse: "start"
   next: "../index.html"

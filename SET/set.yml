@@ -1,2 +1,4 @@
 set:
   ready: true
+  mode: "minimal"
+  version: 1.01

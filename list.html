@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>BORG – LIST</title>
-  <link rel="stylesheet" href="core/core.css">
-</head>
-<body>
-
-<div class="list-wrap">
-  <h1>LIST – Richtungs-Output</h1>
-  <pre id="out">lade…</pre>
-</div>
-
-<script src="core/core.js"></script>
 <script>
-  BORG.PAGE.list();
+fetch("borg.yml")
+  .then(r => r.text())
+  .then(t => {
+    const m = t.match(/uime:\s*"([^"]+)"/);
+    if (m) window.UIME = m[1];
+  });
 </script>
-
-</body>
-</html>

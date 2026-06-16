@@ -1,4 +1,2 @@
 rec:
-  wertigkeit: minimal
-  trigger: nc
-
+  mode: "leicht"

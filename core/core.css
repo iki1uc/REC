@@ -1,1 +1,86 @@
+/* Grundlayout */
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #050608;
+  color: #f0f0f0;
+}
+
+/* Index */
+
+.main-nav {
+  padding: 20px;
+}
+
+.main-nav h1 {
+  margin-bottom: 10px;
+}
+
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.main-nav li {
+  margin: 5px 0;
+}
+
+/* RUN: 2x2 + Dunkelkammer */
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.screen-top {
+  flex: 1;
+  display: flex;
+}
+
+.screen-left,
+.screen-right {
+  flex: 1;
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.screen-left {
+  background: radial-gradient(circle at top left, #1b2735, #090a0f);
+}
+
+.screen-right {
+  background: radial-gradient(circle at top right, #2b2135, #090a0f);
+}
+
+.screen-shadow {
+  height: 25vh;
+  background: #020203;
+  border-top: 1px solid #333;
+  padding: 10px;
+  font-size: 0.8rem;
+  overflow: auto;
+}
+
+/* LIST: Textausgabe */
+
+.list-wrap {
+  padding: 20px;
+}
+
+.list-wrap h1 {
+  margin-bottom: 10px;
+}
+
+.list-wrap pre {
+  background: #111;
+  padding: 10px;
+  border-radius: 4px;
+  max-height: 70vh;
+  overflow: auto;
+}
 

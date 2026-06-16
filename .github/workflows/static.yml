@@ -1,5 +1,0 @@
-redirect:
-  mode: "middle"
-  active: true
-  next: "uime.html"
-  wake: "p"

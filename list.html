@@ -2,19 +2,19 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>REC – LIST</title>
+  <title>BORG – LIST</title>
+  <link rel="stylesheet" href="core/core.css">
 </head>
 <body>
 
-<h1>LIST</h1>
-<p>WRT Ausgabe:</p>
+<div class="list-wrap">
+  <h1>LIST – Richtungs-Output</h1>
+  <pre id="out">lade…</pre>
+</div>
 
-<pre id="out"></pre>
-
+<script src="core/core.js"></script>
 <script>
-  fetch("WRT/wrt.yml")
-    .then(r => r.text())
-    .then(t => document.getElementById("out").textContent = t);
+  BORG.PAGE.list();
 </script>
 
 </body>

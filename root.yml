@@ -1,5 +1,6 @@
-load:
-  - SET/set.yml
-  - REC/rec.yml
-  - WRT/wrt.yml
-
+root:
+  active: true
+  version: 1.01
+  next: "SET/set.yml"
+  rec: "REC/rec.yml"
+  wrt: "WRT/wrt.yml"

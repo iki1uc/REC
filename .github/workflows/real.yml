@@ -1,6 +1,7 @@
 # REC – static.yml
 # reine Daten, 0% GitHub-Workflow-Risiko
 
+identitaet: static
 existenz: rec
 modus: rec
 rtms_help: "~"        # sanftes RTMS-Metasignal

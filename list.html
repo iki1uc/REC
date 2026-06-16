@@ -1,1 +1,21 @@
-1
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>REC – LIST</title>
+</head>
+<body>
+
+<h1>LIST</h1>
+<p>WRT Ausgabe:</p>
+
+<pre id="out"></pre>
+
+<script>
+  fetch("WRT/wrt.yml")
+    .then(r => r.text())
+    .then(t => document.getElementById("out").textContent = t);
+</script>
+
+</body>
+</html>

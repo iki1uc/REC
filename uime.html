@@ -1,1 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>UIME – 5‑Achsen‑Raum</title>
+  <style>
+    body {
+      margin: 0;
+      background: #f4f4f4;
+      font-family: sans-serif;
+      display: grid;
+      height: 100vh;
+      grid-template-areas:
+        " .    up    .   "
+        "left center right"
+        " .   down  .   ";
+      place-items: center;
+      gap: 1.2rem;
+    }
+    .btn {
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      border: 1px solid #bbb;
+      background: white;
+      cursor: pointer;
+      box-shadow: 0 1px 3px #ccc;
+    }
+    #center {
+      grid-area: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px #ccc;
+      text-align: center;
+    }
+    #up { grid-area: up; }
+    #down { grid-area: down; }
+    #left { grid-area: left; }
+    #right { grid-area: right; }
+  </style>
+</head>
+<body>
 
+  <button id="up" class="btn" data-axis="Y" data-dir="+">hoch</button>
+  <button id="left" class="btn" data-axis="X" data-dir="-">links</button>
+
+  <div id="center">
+    <h3>UIME‑Status</h3>
+    <div id="pos">X0 Y0 Z0 R0 L0</div>
+    <br>
+    <button class="btn" data-axis="Z" data-dir="+">tiefer</button>
+    <button class="btn" data-axis="Z" data-dir="-">vorne</button>
+    <button class="btn" data-axis="R" data-dir="+">drehen</button>
+    <button class="btn" data-axis="L" data-dir="+">Ebene</button>
+  </div>
+
+  <button id="right" class="btn" data-axis="X" data-dir="+">rechts</button>
+  <button id="down" class="btn" data-axis="Y" data-dir="-">runter</button>
+
+  <script>
+    const UIME = { X:0, Y:0, Z:0, R:0, L:0 };
+
+    function update() {
+      document.getElementById("pos").textContent =
+        `X${UIME.X} Y${UIME.Y} Z${UIME.Z} R${UIME.R} L${UIME.L}`;
+    }
+
+    document.querySelectorAll("[data-axis]").forEach(btn => {
+      btn.onclick = () => {
+        const a = btn.dataset.axis;
+        const d = btn.dataset.dir === "+" ? 1 : -1;
+        UIME[a] += d;
+        update();
+      };
+    });
+
+    update();
+  </script>
+
+</body>
+</html>

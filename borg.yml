@@ -1,5 +1,5 @@
-uime: "uime.html"
-run: "run.html"
-list: "list.html"
-mode: "free"
-
+clear: 1.0
+low uime: 1.1
+wake up: 0.9
+free: on 0.17
+next: uime.html

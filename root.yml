@@ -1,6 +1,5 @@
 root:
   active: true
+  name: "iki1uc"
+  lage: "index.html"
   version: 1.01
-  next: "SET/set.yml"
-  rec: "REC/rec.yml"
-  wrt: "WRT/wrt.yml"

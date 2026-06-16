@@ -1,2 +1,5 @@
 wrt:
-  output: "klar"
+  zone_left: "Würfel A"
+  zone_right: "Würfel B"
+  zone_shadow: "Dunkelkammer"
+  style: "clean"

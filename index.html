@@ -21,15 +21,14 @@
 </script>
 
 <script>
-fetch("wiz.yml")
+fetch("borg.yml")
   .then(r => r.text())
   .then(t => {
     if (t.includes("mode: free")) {
-      const m = t.match(/next:\s*"([^"]+)"/);
+      const m = t.match(/uime:\s*"([^"]+)"/);
       if (m) window.location.href = m[1];
     }
-  })
-  .catch(() => {});
+  });
 </script>
 
 </body>

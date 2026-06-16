@@ -2,21 +2,22 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>REC – LIST</title>
+  <title>BORG – RUN</title>
+  <link rel="stylesheet" href="core/core.css">
 </head>
 <body>
 
-<h1>LIST</h1>
-<pre id="out"></pre>
+<div class="screen">
+  <div class="screen-top">
+    <div id="left" class="screen-left">Würfel A</div>
+    <div id="right" class="screen-right">Würfel B</div>
+  </div>
+  <div id="shadow" class="screen-shadow">Dunkelkammer</div>
+</div>
 
+<script src="core/core.js"></script>
 <script>
-fetch("root.yml?rev=" + Math.random())
-  .then(r => r.text())
-  .then(t => console.log("root aktiv:", t));
-
-fetch("WRT/wrt.yml")
-  .then(r => r.text())
-  .then(t => document.getElementById("out").textContent = t);
+  BORG.PAGE.run();
 </script>
 
 </body>

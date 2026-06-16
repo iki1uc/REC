@@ -1,5 +1,5 @@
 play:
   ok: 1
-  rev: 1.05
+  rev: 1.06
   rec: "REC/rec.yml"
-  d: "2026-06-16"
+  date: "2026-06-16"

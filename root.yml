@@ -1,1 +1,5 @@
+load:
+  - SET/set.yml
+  - REC/rec.yml
+  - WRT/wrt.yml
 

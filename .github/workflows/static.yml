@@ -1,14 +1,3 @@
-core:
-  active: true
-  stable: true
-  revision: 1
-
-paths:
-  set: "SET/set.yml"
-  rec: "REC/rec.yml"
-  wrt: "WRT/wrt.yml"
-
-state:
-  ready: true
-  mode: "minimal"
-  allow_extend: true
+root: "core/root.core.yml"
+active: true
+rev: 1.01

@@ -2,31 +2,21 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>REC – RUN</title>
-  <style>
-    body { margin:0; display:flex; height:100vh; flex-direction:column; }
-    #top { flex:1; display:flex; }
-    #left, #right { flex:1; border:1px solid #333; }
-    #shadow { height:25vh; background:#111; color:#eee; padding:10px; }
-  </style>
+  <title>REC – LIST</title>
 </head>
 <body>
 
-<div id="top">
-  <div id="left">Würfel A</div>
-  <div id="right">Würfel B</div>
-</div>
-
-<div id="shadow">Dunkelkammer</div>
+<h1>LIST</h1>
+<pre id="out"></pre>
 
 <script>
 fetch("root.yml?rev=" + Math.random())
   .then(r => r.text())
   .then(t => console.log("root aktiv:", t));
 
-fetch("REC/rec.yml")
+fetch("WRT/wrt.yml")
   .then(r => r.text())
-  .then(t => console.log("REC:", t));
+  .then(t => document.getElementById("out").textContent = t);
 </script>
 
 </body>

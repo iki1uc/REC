@@ -1,0 +1,33 @@
+# REC – static.yml
+# reine Daten, 0% GitHub-Workflow-Risiko
+
+identitaet: static
+quelle: real
+existenz: rec
+modus: rec
+
+rtms_help: "~"        # sanft, stabil, kein Druck
+
+clear: 1.0
+low: 1.1
+wake: 0.9
+
+free: sanft
+load: leicht
+fix: stabil
+upd: herzhaft
+
+impuls:
+  art: sanft
+  kraft: mild
+
+rtms:
+  wurzel: "https://iki1uc.github.io/RTMS/"
+  erlaubt: true
+  modus: "fix"
+
+usb:
+  modus: "4x"
+  zugriff: "gesperrt"
+
+next: "uime.html"

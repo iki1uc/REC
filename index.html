@@ -13,5 +13,11 @@
   <li><a href="list.html">LIST</a></li>
 </ul>
 
+<script>
+fetch("root.yml?rev=" + Math.random())
+  .then(r => r.text())
+  .then(t => console.log("root aktiv:", t));
+</script>
+
 </body>
 </html>

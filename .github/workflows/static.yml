@@ -1,3 +1,5 @@
-root: "core/root.core.yml"
-active: true
-rev: 1.01
+play:
+  ok: 1
+  rev: 1.05
+  rec: "REC/rec.yml"
+  d: "2026-06-16"

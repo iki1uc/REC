@@ -2,21 +2,22 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>REC – Index</title>
+  <title>BORG – Index</title>
+  <link rel="stylesheet" href="core/core.css">
 </head>
 <body>
 
-<h1>REC – Start</h1>
+<div class="main-nav">
+  <h1>BORG – SET / REC / WRT</h1>
+  <ul>
+    <li><a href="run.html">RUN – 2x2 + Dunkelkammer</a></li>
+    <li><a href="list.html">LIST – Richtungs-Output</a></li>
+  </ul>
+</div>
 
-<ul>
-  <li><a href="run.html">RUN</a></li>
-  <li><a href="list.html">LIST</a></li>
-</ul>
-
+<script src="core/core.js"></script>
 <script>
-fetch("root.yml?rev=" + Math.random())
-  .then(r => r.text())
-  .then(t => console.log("root aktiv:", t));
+  BORG.PAGE.index();
 </script>
 
 </body>

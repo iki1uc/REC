@@ -1,4 +1,2 @@
 wrt:
-  output: clean
-  style: short
-
+  output: "klar"

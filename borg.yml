@@ -1,5 +1,11 @@
 clear: 1.0
-low uime: 1.1
-wake up: 0.9
-free: on 0.17
-next: uime.html
+low: 1.1
+wake: 0.9
+
+free: 0.17
+
+uime: "uime.html"
+next: "uime.html"
+
+species:
+  8472: "spc/8472.html"

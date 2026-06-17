@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>SPECIES 8472 – 48igkeits‑Raum</title>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+</head>
+<body>
+
+<h1>SPECIES 8472 – EMU‑Raum 48igkeit</h1>
+
+<p>Terrain: <span id="terrain">…</span></p>
+<p>Modus: <span id="mode">…</span></p>
+<p>Koop‑Status: <span id="koop">…</span></p>
+
+<p>
+  <a href="../index.html">Zurück zu RTMS / REC ROOT</a>
+</p>
+
+<script>
+fetch("../borg.yml")
+  .then(r => r.text())
+  .then(t => {
+    const y = jsyaml.load(t);
+    const s8472 = y.species && y.species["8472"];
+
+    if (!s8472 || !s8472.active) {
+      document.body.insertAdjacentHTML("beforeend",
+        "<p>8472 ist nicht aktiv.</p>");
+      return;
+    }
+
+    document.getElementById("terrain").textContent = s8472.terrain;
+    document.getElementById("mode").textContent    = s8472.mode;
+    document.getElementById("koop").textContent    = s8472.koop;
+  });
+</script>
+
+</body>
+</html>
 

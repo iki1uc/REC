@@ -1,43 +1,37 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <title>RTMS / REC – ROOT</title>
-  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
-</head>
-<body>
-
-<h1>RTMS – REC Massstation</h1>
-
-<p>4‑Achse: <span id="a4">…</span></p>
-<p>12‑Achse: <span id="a12">…</span></p>
-<p>48‑Achse: <span id="a48">…</span></p>
-<p>360°: <span id="a360">…</span></p>
-
-<p>
-  <a id="link8472" href="#">SPECIES 8472 – 48igkeits‑Raum betreten</a>
-</p>
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
 
 <script>
-fetch("borg.yml")
-  .then(r => r.text())
-  .then(t => {
-    const y = jsyaml.load(t);
+async function AUSWERTUNG() {
 
-    const rt = y.rtms || {};
-    document.getElementById("a4").textContent   = rt["4"]   || "-";
-    document.getElementById("a12").textContent  = rt["12"]  || "-";
-    document.getElementById("a48").textContent  = rt["48"]  || "-";
-    document.getElementById("a360").textContent = rt["360"] || "-";
+  const borgRaw = await fetch("borg.yml").then(r => r.text());
+  const borg = jsyaml.load(borgRaw);
 
-    const s8472 = y.species && y.species["8472"];
-    if (s8472 && s8472.active) {
-      document.getElementById("link8472").href = s8472.link;
-    } else {
-      document.getElementById("link8472").textContent = "SPECIES 8472 nicht aktiv";
-    }
-  });
+  const out = {
+    borg: borg.rtms || {},
+    s8472: borg.species?.["8472"] || {},
+    human: "active",
+    sonne: "XX88",
+    erde: "1.0",
+    sonne2: "PI",
+    raum48: "offen"
+  };
+
+  // Ergebnis anzeigen
+  document.getElementById("borg4").textContent   = out.borg["4"];
+  document.getElementById("borg12").textContent  = out.borg["12"];
+  document.getElementById("borg48").textContent  = out.borg["48"];
+  document.getElementById("borg360").textContent = out.borg["360"];
+
+  document.getElementById("s8472").textContent   = out.s8472.active ? "aktiv" : "inaktiv";
+  document.getElementById("terrain").textContent = out.s8472.terrain || "1";
+
+  document.getElementById("human").textContent   = out.human;
+  document.getElementById("sonne").textContent   = out.sonne;
+  document.getElementById("erde").textContent    = out.erde;
+  document.getElementById("sonne2").textContent  = out.sonne2;
+
+  document.getElementById("raum48").textContent  = out.raum48;
+}
+
+AUSWERTUNG();
 </script>
-
-</body>
-</html>

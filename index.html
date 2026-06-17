@@ -1,35 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>BORG – Index</title>
+  <title>REC – ROOT</title>
   <link rel="stylesheet" href="core/core.css">
 </head>
+
 <body>
 
-<div class="main-nav">
-  <h1>BORG – SET / REC / WRT</h1>
-  <ul>
-    <li><a href="run.html">RUN – 2x2 + Dunkelkammer</a></li>
-    <li><a href="list.html">LIST – Richtungs-Output</a></li>
-  </ul>
-</div>
+  <div class="main-nav">
+    <h1>REC – ROOT</h1>
+    <ul>
+      <li><a href="run.html">RUN – Massstation</a></li>
+      <li><a href="list.html">LIST – Output</a></li>
+    </ul>
+  </div>
 
-<script src="core/core.js"></script>
-<script>
-  BORG.PAGE.index();
-</script>
-
-<script>
-fetch("borg.yml")
-  .then(r => r.text())
-  .then(t => {
-    if (t.includes("mode: free")) {
-      const m = t.match(/uime:\s*"([^"]+)"/);
-      if (m) window.location.href = m[1];
+  <script src="core/core.js"></script>
+  <script>
+    // REC ROOT Startsignal
+    if (typeof BORG !== "undefined" && BORG.PAGE) {
+      BORG.PAGE.index();
     }
-  });
-</script>
+  </script>
+
+  <script>
+    // RTMS / REC Router
+    fetch("borg.yml")
+      .then(r => r.text())
+      .then(t => {
+        const m = t.match(/next:\s*"([^"]+)"/);
+        if (m) window.location.href = m[1];
+      });
+  </script>
 
 </body>
 </html>

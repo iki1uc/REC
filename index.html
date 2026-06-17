@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>REC – RTMS Massstation</title>
-</head>
-
-<body>
-
-<h1>RTMS – REC Massstation</h1>
-
-<p>4‑Achse: <span id="a4">…</span></p>
-<p>12‑Achse: <span id="a12">…</span></p>
-<p>360°: <span id="a360">…</span></p>
-
 <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
 
 <script>
@@ -26,6 +11,3 @@ fetch("https://iki1uc.github.io/RTMS/rtms.yml")
     document.getElementById("a360").innerText = y.rtms["360"];
   });
 </script>
-
-</body>
-</html>

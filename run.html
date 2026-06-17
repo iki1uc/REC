@@ -1,8 +1,22 @@
 <script>
-fetch("borg.yml")
-  .then(r => r.text())
-  .then(t => {
-    const m = t.match(/uime:\s*"([^"]+)"/);
-    if (m) window.UIME = m[1];
-  });
+const REC  = JSON.parse(sessionStorage.getItem("REC"));
+const RTMS = JSON.parse(sessionStorage.getItem("RTMS"));
+
+document.body.innerHTML = `
+<h1>RUN – Bewegungsraum</h1>
+
+<h2>RTMS</h2>
+4‑Achse: ${RTMS["4"]}<br>
+12‑Achse: ${RTMS["12"]}<br>
+48‑Achse: ${RTMS["48"]}<br>
+360°: ${RTMS["360"]}<br>
+
+<h2>REC</h2>
+Terrain: ${REC.terrain}<br>
+Epoche: ${REC.epoche}<br>
+PI: ${REC.pi}<br>
+Human: ${REC.human}<br>
+Sonne: ${REC.sonne}<br>
+Erde: ${REC.erde}<br>
+`;
 </script>

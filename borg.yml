@@ -1,11 +1,13 @@
-clear: 1.0
-low: 1.1
-wake: 0.9
-
-free: 0.17
-
-uime: "uime.html"
-next: "uime.html"
+rtms:
+  4: "online"
+  12: "online"
+  48: "active"
+  360: "yes"
 
 species:
-  8472: "spc/8472.html"
+  8472:
+    active: true
+    mode: "48"
+    terrain: 1
+    koop: "koop"        # oder "-koop"
+    link: "spc/8472.html"

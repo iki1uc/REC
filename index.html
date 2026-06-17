@@ -1,4 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>48igkeits‑Raum – REC / BORG / 8472</title>
 <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+<style>
+  body { font-family: monospace; background:#000; color:#0f0; }
+  .grid { display:grid; grid-template-columns:repeat(3,40px); gap:6px; margin:20px 0; }
+  .cell { width:40px; height:40px; display:flex; align-items:center; justify-content:center; border:1px solid #0f0; }
+  .center { background:#0f0; color:#000; font-weight:bold; }
+  .diamond { font-size:22px; line-height:22px; }
+</style>
+</head>
+
+<body>
+
+<h1>48igkeits‑Raum</h1>
+
+<!-- 3×3 BORG‑Raster -->
+<div class="grid">
+  <div class="cell">□</div>
+  <div class="cell">□</div>
+  <div class="cell">□</div>
+
+  <div class="cell">◄</div>
+  <div class="cell center">■</div>
+  <div class="cell">►</div>
+
+  <div class="cell">□</div>
+  <div class="cell">□</div>
+  <div class="cell">□</div>
+</div>
+
+<!-- 4×4 8472‑Matrix -->
+<pre id="matrix8472"></pre>
+
+<!-- Diamant‑Terrain -->
+<pre class="diamond" id="terrainShape"></pre>
+
+<!-- Meta‑Infos -->
+<pre id="meta"></pre>
 
 <script>
 async function AUSWERTUNG() {
@@ -6,32 +47,62 @@ async function AUSWERTUNG() {
   const borgRaw = await fetch("borg.yml").then(r => r.text());
   const borg = jsyaml.load(borgRaw);
 
-  const out = {
-    borg: borg.rtms || {},
-    s8472: borg.species?.["8472"] || {},
-    human: "active",
-    sonne: "XX88",
-    erde: "1.0",
-    sonne2: "PI",
-    raum48: "offen"
-  };
+  const s8472 = borg.species?.["8472"] || {};
 
-  // Ergebnis anzeigen
-  document.getElementById("borg4").textContent   = out.borg["4"];
-  document.getElementById("borg12").textContent  = out.borg["12"];
-  document.getElementById("borg48").textContent  = out.borg["48"];
-  document.getElementById("borg360").textContent = out.borg["360"];
+  // 4×4 Matrix (8472‑Raum)
+  const matrix = [
+    ["A","C","D","1"],
+    ["4","X","9","B"],
+    ["C","2","4","X"],
+    ["?","?","?","?"]
+  ];
 
-  document.getElementById("s8472").textContent   = out.s8472.active ? "aktiv" : "inaktiv";
-  document.getElementById("terrain").textContent = out.s8472.terrain || "1";
+  document.getElementById("matrix8472").textContent =
+    matrix.map(r => r.join(" ")).join("\n");
 
-  document.getElementById("human").textContent   = out.human;
-  document.getElementById("sonne").textContent   = out.sonne;
-  document.getElementById("erde").textContent    = out.erde;
-  document.getElementById("sonne2").textContent  = out.sonne2;
+  // Diamant‑Terrain
+  const diamond = `
+   ■
+  ■■■
+ ■■■■■
+  ■■■
+   ■
+  `;
+  document.getElementById("terrainShape").textContent = diamond;
 
-  document.getElementById("raum48").textContent  = out.raum48;
+  // Meta‑Infos
+  const meta = `
+BORG:
+  4:   ${borg.rtms?.["4"]   || "-"}
+  12:  ${borg.rtms?.["12"]  || "-"}
+  48:  ${borg.rtms?.["48"]  || "aktiv"}
+  360: ${borg.rtms?.["360"] || "yes"}
+
+SPECIES 8472:
+  Status:   ${s8472.active ? "aktiv" : "inaktiv"}
+  Terrain:  ${s8472.terrain || "1"}
+  Modus:    ${s8472.mode || "48"}
+  Koop:     ${s8472.koop || "koop"}
+
+Human: active
+Sonne: XX88
+Erde:  1.0
+PI:    frei
+
+Zeit:
+  Vergangenheit: 0
+  Jetzt:         0
+  Zukunft:       0
+  Ereignishorizont: offen
+
+Gefahr: 0
+Epoche: jetzt
+  `;
+  document.getElementById("meta").textContent = meta;
 }
 
 AUSWERTUNG();
 </script>
+
+</body>
+</html>
